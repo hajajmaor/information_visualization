@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <div id="title"></div>
+    <svg id="barChart"></svg>
+    <script>
+      const title = d3.select("#title");
+      title.append("H3").text("Hello World - Maor Meir Hajaj");
+
+      const data = [10, 12, 16, 33, 5, 18, 26, 40, 20, 25, 22];
+      // Bars should be in three different colors, alternately (i.e., the first in color 1, second in color 2, third in color 3, etc.), with a small space between each bar.
+      const width = 200;
+      const height = 80;
+      const svg = d3.select("#barChart");
+      svg.attr("width", width).attr("height", height);
+      const padding = 1.4;
+      const step = 10;
+      svg
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", (d, i) => i * step * padding)
+        .attr("y", (d) => height - d)
+        .attr("width", 10)
+        .attr("height", (d) => d);
+    </script>
+  </body>
+</html>
