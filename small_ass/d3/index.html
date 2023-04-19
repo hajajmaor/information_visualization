@@ -30,7 +30,8 @@
         .attr("x", (d, i) => i * step * padding)
         .attr("y", (d) => height - d)
         .attr("width", 10)
-        .attr("height", (d) => d);
+        .attr("height", (d) => d)
+        .attr("fill", () => "hsl(" + Math.random() * 360 + ",100%,50%)");
     </script>
   </body>
 </html>
